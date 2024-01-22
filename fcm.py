@@ -44,9 +44,9 @@ class FCM:
             diff = obj_function - self.objective_function
             self.objective_function = obj_function
 
-            print(f"Iteration {iteration + 1}/{self.max_iter} - Objective Function: {self.objective_function}")
-            print("Membership Matrix:")
-            print(self.membership_matrix)
+            #print(f"Iteration {iteration + 1}/{self.max_iter} - Objective Function: {self.objective_function}")
+            #print("Membership Matrix:")
+            #print(self.membership_matrix)
 
             if np.abs(diff) < self.tolerance:
                break
@@ -85,10 +85,10 @@ class FCM:
     def _assign_cluster(self, membership_matrix: np.ndarray):
         return np.argmax(membership_matrix, axis=1 )
 
-import pandas as pd
-data = np.random.rand(500, 8)
-data = np.array(data)
-fcm = FCM(n_cluster=3, max_iter=100, tolerance=0.01)
-fcm.fit(data)
-predictions = fcm.predict(data)
-print("Cluster:", predictions)
+if __name__ == "__main__":
+    
+    data = np.random.rand(500, 8)
+    fcm = FCM(n_cluster=3, max_iter=100, tolerance=0.01)
+    fcm.fit(data)
+    predictions = fcm.predict(data)
+    print("Cluster:", predictions)
