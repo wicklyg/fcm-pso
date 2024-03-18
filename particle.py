@@ -1,6 +1,6 @@
 import numpy as np
 
-from fcm import FCM, calculate_obj_function
+from fcm import FCM, calculate_obj_function, init_membership_matrix
 
 def calc_centroids(data: np.ndarray, 
                    n_cluster: int, 
@@ -23,18 +23,19 @@ class Particle:
                  c2: float = 0.3):
         self.n_cluster = n_cluster
         self.fuzziness = fuzziness
-        self.membership_matrix = FCM.init_membership_matrix(data=data, n_cluster=self.n_cluster)
+        self.membership_matrix = init_membership_matrix(data=data, n_cluster=self.n_cluster)
         self.centroids = calc_centroids(data, self.n_cluster, self.membership_matrix, self.fuzziness)
         self.best_position = self.membership_matrix.copy()
         self.best_score = calculate_obj_function(data, self.centroids, self.membership_matrix, self.fuzziness)
         self.velocity = np.zeros_like(self.membership_matrix)
+        self.data = data
         self._w = w
         self._c1 = c1
         self._c2 = c2
 
     def update(self, gbest_postition: np.ndarray, data: np.ndarray):
         self._update_velocity(gbest_postition)
-        self._update_membership_matrix(data, self.centroids, self.membership_matrix)
+        return self._update_membership_matrix(data, self.centroids, self.membership_matrix)
         
     def _update_velocity(self, gbest_postition: np.ndarray):
         v_old = self._w * self.velocity
@@ -72,12 +73,6 @@ if __name__ == "__main__":
 
     for iteration in range(max_iterations):
         gbest_position = particle.best_position
-        particle.update(gbest_position, data)
+        gbest = particle.update(gbest_position, data)
 
-        predictions = particle._predict()
-
-        print(f"Iteration {iteration + 1}/{max_iterations} - Predicted Clusters: {predictions}")
-
-             
-
-    
+        print(f"Iteration {iteration + 1}/{max_iterations} - gbest: {gbest}")

@@ -1,5 +1,11 @@
 import numpy as np
 
+def init_membership_matrix(data: np.ndarray, n_cluster: int):
+    n_data = data.shape[0]
+    membership_matrix = np.random.rand(n_data, n_cluster)
+    membership_matrix /= np.sum(membership_matrix, axis=1)[:, np.newaxis]
+    return membership_matrix
+
 def calculate_obj_function(data, centroids, membership_matrix, fuzzines):
     num_clusters = centroids.shape[0]
     num_data = data.shape[0]
@@ -30,7 +36,7 @@ class FCM:
         self.fcm_objective_function = None
 
     def fit(self, data: np.ndarray):
-        self.membership_matrix = self.init_membership_matrix(data=data, n_cluster=self.n_cluster)
+        self.membership_matrix = self._init_membership_matrix(data=data)
         self.objective_function = 0
 
         for iteration in range(self.max_iter):
@@ -44,9 +50,9 @@ class FCM:
             diff = obj_function - self.objective_function
             self.objective_function = obj_function
 
-            #print(f"Iteration {iteration + 1}/{self.max_iter} - Objective Function: {self.objective_function}")
-            #print("Membership Matrix:")
-            #print(self.membership_matrix)
+            print(f"Iteration {iteration + 1}/{self.max_iter} - Objective Function: {self.objective_function}")
+            print("Membership Matrix:")
+            print(self.membership_matrix)
 
             if np.abs(diff) < self.tolerance:
                break
@@ -54,9 +60,9 @@ class FCM:
     def predict(self, data: np.ndarray):
         return self._assign_cluster(self.membership_matrix)
 
-    def init_membership_matrix(self, data: np.ndarray, n_cluster: int):
+    def _init_membership_matrix(self, data: np.ndarray):
         n_data = data.shape[0]
-        membership_matrix = np.random.rand(n_data, n_cluster)
+        membership_matrix = np.random.rand(n_data, self.n_cluster)
         membership_matrix /= np.sum(membership_matrix, axis=1)[:, np.newaxis]
         return membership_matrix
     
