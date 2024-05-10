@@ -56,6 +56,7 @@ class FCM:
 
             if np.abs(diff) < self.tolerance:
                break
+        return self
 
     def predict(self, data: np.ndarray):
         return self._assign_cluster(self.membership_matrix)
@@ -92,9 +93,4 @@ class FCM:
         return np.argmax(membership_matrix, axis=1 )
 
 if __name__ == "__main__":
-    
-    data = np.random.rand(500, 8)
-    fcm = FCM(n_cluster=3, max_iter=100, tolerance=0.01)
-    fcm.fit(data)
-    predictions = fcm.predict(data)
-    print("Cluster:", predictions)
+    pass
