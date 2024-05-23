@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/wicklyg/fcm-pso">
-    <img src="img/img.webp" alt="Logo" width="120" height="120">
+    <img src="img/img.webp" alt="Logo" width="150" height="150">
   </a>
   
   <h3 align="center">Clustering of Regencies/Cities in Indonesia Based on Welfare Indicators Using Fuzzy C-Means and Particle Swarm Optimization</h3>
@@ -78,15 +78,17 @@ Ensure you have Python installed on your system. The project requires the follow
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-         ```
 
 ## Running the Project
 
 1. Ensure your dataset `Data IKR New.xlsx` is placed inside the `data` directory.
 2. Run the main script:
+
    ```bash
    python main.py
+
    ```
+
 3. The processed data will be saved to `Processed_Data.xlsx` in the data directory.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
