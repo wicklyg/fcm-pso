@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/wicklyg/fcm-pso">
-    <img src="img/img.webp" alt="Logo" width="80" height="80">
+    <img src="img/img.webp" alt="Logo" width="120" height="120">
   </a>
   
   <h3 align="center">Clustering of Regencies/Cities in Indonesia Based on Welfare Indicators Using Fuzzy C-Means and Particle Swarm Optimization</h3>
@@ -75,8 +75,10 @@ Ensure you have Python installed on your system. The project requires the follow
 2. Install the required Python packages:
    ```bash
    pip install -r requirements.txt
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
    ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+         ```
 
 ## Running the Project
 
@@ -86,6 +88,7 @@ Ensure you have Python installed on your system. The project requires the follow
    python main.py
    ```
 3. The processed data will be saved to `Processed_Data.xlsx` in the data directory.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Data Sources
@@ -108,7 +111,7 @@ The primary dataset used in this project is [Data IKR New.xlsx](https://github.c
    - Percentage of Poor Population (Persentase Penduduk Miskin)
    - Open Unemployment Rate (Tingkat Pengangguran Terbuka)
 
-  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Future work
 
@@ -118,6 +121,7 @@ Potential future work includes:
 - Exploring additional clustering algorithms.
 - Integrating more welfare indicators.
 - Applying the model to different datasets for broader analysis.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Acknowledgments
@@ -129,6 +133,7 @@ Potential future work includes:
 1. Bezdek, J. C., R. Ehrlich, dan W. Full. (1984). FCM: The Fuzzy C-Means Clustering Algorithm. _Computer & Geosciences_.
 2. Izakian, H. dan A. Abraham. (2011). Fuzzy C-Means and Fuzzy Swarm for Fuzzy Clustering Problem. _Expert Systems with Applications_.
 3. Badan Pusat Statistik (BPS) - Various data sources for welfare indicators.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
