@@ -69,7 +69,7 @@ Ensure you have Python installed on your system. The project requires the follow
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/wicklyg/fcm-pso.git
    cd project_folder
    ```
 2. Install the required Python packages:
